@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Font Awesome -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- MDB -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.0.0/mdb.min.css"
+      rel="stylesheet"
+    />
+    <script type="module" src="main.js"></script>
+    <title>My Booklist App</title>
+  </head>
+  <body>
+    <main>
+      <section>
+        <div class="container mt-4">
+          <div class="row">
+            <div class="col">
+              <h1 class="display-4 text-center mt-4 mb-5">
+                <i class="fas fa-book-open text-primary"></i>
+                My<span class="text-primary">Reading</span>List
+              </h1>
+
+              <div class="col-12 col-lg-8 offset-lg-2 col-xl-6 offset-xl-3">
+                <form id="form">
+                  <div class="form-outline mb-4">
+                    <input id="title" type="text" class="form-control" />
+                    <label for="title" class="form-label">Title</label>
+                  </div>
+
+                  <div class="form-outline mb-4">
+                    <input id="author" type="text" class="form-control" />
+                    <label for="author" class="form-label">Author</label>
+                  </div>
+
+                  <div class="form-outline mb-4">
+                    <input id="isbn" type="text" class="form-control" />
+                    <label for="isbn" class="form-label">ISBN#</label>
+                  </div>
+
+                  <button type="submit" class="btn btn-primary btn-block">
+                    Add Book
+                  </button>
+                </form>
+              </div>
+
+              <table class="table table-striped mt-5">
+                <thead>
+                  <tr>
+                    <th>Title</th>
+                    <th>Author</th>
+                    <th>ISBN#</th>
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody id="bookList"></tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- MDB -->
+    <script
+      type="text/javascript"
+      src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.0.0/mdb.min.js"
+    ></script>
+  </body>
+</html>
