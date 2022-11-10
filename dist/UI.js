@@ -1,24 +1,8 @@
+import { Store } from './Store.js';
 export class UI {
     constructor() { }
     static displayBooks() {
-        const StoredBooks = [
-            {
-                title: 'Book One',
-                author: 'John Wick',
-                isbn: '123456',
-            },
-            {
-                title: 'Book Two',
-                author: 'Jason Bourne',
-                isbn: '789012',
-            },
-            {
-                title: 'Book Three',
-                author: 'James Bond',
-                isbn: '012345',
-            },
-        ];
-        const books = StoredBooks;
+        const books = Store.getBooks();
         books.forEach((book) => UI.addBookToList(book));
     }
     static addBookToList(book) {
@@ -42,6 +26,7 @@ export class UI {
         var _a, _b;
         if (target.classList.contains('delete')) {
             (_b = (_a = target.parentElement) === null || _a === void 0 ? void 0 : _a.parentElement) === null || _b === void 0 ? void 0 : _b.remove();
+            UI.showAlert('Book Removed!', 'success');
         }
     }
     static showAlert(message, className) {
@@ -51,6 +36,10 @@ export class UI {
         const container = document.getElementById('container');
         const form = document.getElementById('form');
         container.insertBefore(div, form);
+        setTimeout(() => {
+            var _a;
+            (_a = document.querySelector('.alert')) === null || _a === void 0 ? void 0 : _a.remove();
+        }, 2000);
     }
     static clearInputs() {
         const title = document.getElementById('title');

@@ -1,28 +1,11 @@
 import { IBook } from './interfaces/IBook';
+import { Store } from './Store.js';
 
 export class UI {
   constructor() {}
 
   static displayBooks() {
-    const StoredBooks = [
-      {
-        title: 'Book One',
-        author: 'John Wick',
-        isbn: '123456',
-      },
-      {
-        title: 'Book Two',
-        author: 'Jason Bourne',
-        isbn: '789012',
-      },
-      {
-        title: 'Book Three',
-        author: 'James Bond',
-        isbn: '012345',
-      },
-    ];
-
-    const books = StoredBooks;
+    const books = Store.getBooks();
 
     books.forEach((book) => UI.addBookToList(book));
   }
@@ -54,6 +37,7 @@ export class UI {
   static deleteBook(target: HTMLButtonElement) {
     if (target.classList.contains('delete')) {
       target.parentElement?.parentElement?.remove();
+      UI.showAlert('Book Removed!', 'success');
     }
   }
 
@@ -66,6 +50,10 @@ export class UI {
     const form = document.getElementById('form') as HTMLFormElement;
 
     container.insertBefore(div, form);
+
+    setTimeout(() => {
+      document.querySelector('.alert')?.remove();
+    }, 2000);
   }
 
   static clearInputs() {
