@@ -50,4 +50,31 @@ export class UI {
 
     list.appendChild(tr);
   }
+
+  static deleteBook(target: HTMLButtonElement) {
+    if (target.classList.contains('delete')) {
+      target.parentElement?.parentElement?.remove();
+    }
+  }
+
+  static showAlert(message: string, className: string) {
+    const div = document.createElement('div');
+    div.className = `alert alert-${className}`;
+    div.appendChild(document.createTextNode(message));
+
+    const container = document.getElementById('container') as HTMLDivElement;
+    const form = document.getElementById('form') as HTMLFormElement;
+
+    container.insertBefore(div, form);
+  }
+
+  static clearInputs() {
+    const title = document.getElementById('title') as HTMLInputElement;
+    const author = document.getElementById('author') as HTMLInputElement;
+    const isbn = document.getElementById('isbn') as HTMLInputElement;
+
+    title.value = '';
+    author.value = '';
+    isbn.value = '';
+  }
 }

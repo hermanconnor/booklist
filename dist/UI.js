@@ -38,4 +38,26 @@ export class UI {
         tr.append(td1, td2, td3, td4);
         list.appendChild(tr);
     }
+    static deleteBook(target) {
+        var _a, _b;
+        if (target.classList.contains('delete')) {
+            (_b = (_a = target.parentElement) === null || _a === void 0 ? void 0 : _a.parentElement) === null || _b === void 0 ? void 0 : _b.remove();
+        }
+    }
+    static showAlert(message, className) {
+        const div = document.createElement('div');
+        div.className = `alert alert-${className}`;
+        div.appendChild(document.createTextNode(message));
+        const container = document.getElementById('container');
+        const form = document.getElementById('form');
+        container.insertBefore(div, form);
+    }
+    static clearInputs() {
+        const title = document.getElementById('title');
+        const author = document.getElementById('author');
+        const isbn = document.getElementById('isbn');
+        title.value = '';
+        author.value = '';
+        isbn.value = '';
+    }
 }
