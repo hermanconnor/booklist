@@ -2,7 +2,7 @@ import { UI } from './UI.js';
 import { Book } from './Book.js';
 import { Store } from './Store.js';
 
-const initApp = () => {
+const initApp = (): void => {
   const form = document.getElementById('form') as HTMLFormElement;
   const title = document.getElementById('title') as HTMLInputElement;
   const author = document.getElementById('author') as HTMLInputElement;
@@ -33,7 +33,7 @@ const initApp = () => {
     UI.showAlert('Book Added!', 'success');
 
     // Clear Inputs
-    UI.clearInputs();
+    form.reset();
   });
 
   // DELETE LISTENER

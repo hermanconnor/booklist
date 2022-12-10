@@ -55,14 +55,4 @@ export class UI {
       document.querySelector('.alert')?.remove();
     }, 2000);
   }
-
-  static clearInputs() {
-    const title = document.getElementById('title') as HTMLInputElement;
-    const author = document.getElementById('author') as HTMLInputElement;
-    const isbn = document.getElementById('isbn') as HTMLInputElement;
-
-    title.value = '';
-    author.value = '';
-    isbn.value = '';
-  }
 }

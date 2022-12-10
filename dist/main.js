@@ -18,7 +18,7 @@ const initApp = () => {
         UI.addBookToList(book);
         Store.addBook(book);
         UI.showAlert('Book Added!', 'success');
-        UI.clearInputs();
+        form.reset();
     });
     bookList.addEventListener('click', (e) => {
         var _a, _b;
